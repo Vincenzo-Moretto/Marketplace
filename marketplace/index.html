@@ -38,7 +38,7 @@
         </div>
         <!-- Off-Canvas -->
 
-        <!-- <div>
+        <div>
           <button
             class="btn btn-warning me-3 position-relative"
             type="button"
@@ -50,10 +50,11 @@
             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-light text-black">
             </span>
           </button>
- -->
-        <button type="button" class="btn btn-primary accedi" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Accedi
-        </button>
+
+          <button type="button" class="btn btn-primary accedi" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Accedi
+          </button>
+        </div>
 
         <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
@@ -111,7 +112,8 @@
       </div>
       <div class="offcanvas-body">
         <ul class="lista"></ul>
-        <p class="totale"></p>
+        <p>Totale: <span class="totalePrezzo">0</span> €</p>
+        <button class="btn btn-warning w-100">Vai al Paga</button>
       </div>
     </div>
 

@@ -10,7 +10,7 @@ const getProdotti = async () => {
   const products = await res.json();
   const row = document.querySelector("#products");
   const cerca = document.querySelector(".cerca").value;
-  console.log(cerca);
+  console.log(products);
   if (cerca !== "") {
     row.innerHTML = "";
     products
@@ -24,7 +24,7 @@ const getProdotti = async () => {
           <h5 class="card-title">${prod.name}</h5>
          <div class= "d-flex justify-content-between">
             <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Details</a>
-            
+             <button class="btn btn-warning w-50" onclick="aggiungiCarrello('${prod.imageUrl}','${prod.name}','${prod.price}','${prod._id}')"><i class="bi bi-cart4"></i></button>
          </div>
         </div>
       </div> 
@@ -39,10 +39,11 @@ const getProdotti = async () => {
         <img src="${prod.imageUrl}" class="card-img-top" alt="${prod._id}_${prod.name}">
         <div class="card-body">
           <h5 class="card-title">${prod.name}</h5>
-                <div class= "d-flex justify-content-between">
+<div class= "d-flex justify-content-between">
             <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Details</a>
-            
+            <button class="btn btn-warning w-50" onclick="aggiungiCarrello('${prod.imageUrl}','${prod.name}','${prod.price}','${prod._id}')"><i class="bi bi-cart4"></i></button>
          </div>
+
         </div>
       </div> 
     </div>`;
@@ -66,6 +67,41 @@ const logout = () => {
 const handleChange = (field, value) => {
   localStorage.setItem(field, value);
 };
+
+/* Logica Carrello */
+
+const aggiungiCarrello = (img, title, price, id) => {
+  const card = document.querySelector("#prod_" + id);
+  console.log(card);
+  const lista = document.querySelector(".lista");
+  lista.innerHTML += ` 
+    <li class="list-group-item d-flex justify-content-between align-items-center mb-3">
+       <div class="d-flex justify-content-around align-items-center">
+         <img src=${img} alt=${title} width="80px" height="80px" class="rounded me-3">
+         <p class="me-3">${title}</p>
+         <p>${price} €</p>
+       </div>
+      <button class='btn btn-danger h-25' onclick="rimuoviCarrello(event, '${id}', '${price}')"><i class="bi bi-trash"></i></button>
+    </li>`;
+  const totale = document.querySelector(".totalePrezzo");
+  /* console.log(totale.innerHTML); */
+  totale.innerHTML = (Number(totale.innerHTML) + Number(price)).toFixed(2);
+  const span = document.querySelector(".badge");
+  span.innerHTML = `${lista.childElementCount}`;
+};
+
+const rimuoviCarrello = (event, id, price) => {
+  event.target.closest("li").remove();
+  const totale = document.querySelector(".totalePrezzo");
+  totale.innerHTML = (Number(totale.innerHTML) - Number(price)).toFixed(2);
+  const card = document.querySelector("#prod_" + id);
+  console.log(card);
+  const lista = document.querySelector(".lista");
+  const span = document.querySelector(".badge");
+  span.innerHTML = `${lista.childElementCount}`;
+};
+
+/* Logica Carrello Fine*/
 
 window.onload = () => {
   getProdotti();
