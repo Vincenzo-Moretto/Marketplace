@@ -23,7 +23,7 @@ const getProdotti = async () => {
         <div class="card-body">
           <h5 class="card-title">${prod.name}</h5>
          <div class= "d-flex justify-content-between">
-            <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Details</a>
+            <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Dettagli</a>
              <button class="btn btn-warning w-50" onclick="aggiungiCarrello('${prod.imageUrl}','${prod.name}','${prod.price}','${prod._id}')"><i class="bi bi-cart4"></i></button>
          </div>
         </div>
@@ -40,7 +40,7 @@ const getProdotti = async () => {
         <div class="card-body">
           <h5 class="card-title">${prod.name}</h5>
 <div class= "d-flex justify-content-between">
-            <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Details</a>
+            <a href="./backoffice.html?id=${prod._id}" class="btn btn-primary me-3 w-50">Dettagli</a>
             <button class="btn btn-warning w-50" onclick="aggiungiCarrello('${prod.imageUrl}','${prod.name}','${prod.price}','${prod._id}')"><i class="bi bi-cart4"></i></button>
          </div>
 
@@ -81,8 +81,25 @@ const aggiungiCarrello = (img, title, price, id) => {
          <p class="me-3">${title}</p>
          <p>${price} €</p>
        </div>
-      <button class='btn btn-danger h-25' onclick="rimuoviCarrello(event, '${id}', '${price}')"><i class="bi bi-trash"></i></button>
-    </li>`;
+      <button class='btn btn-danger h-25'  data-bs-toggle="modal" data-bs-target="#modale${id}"><i class="bi bi-trash"></i></button>
+<div class="modal fade" id="modale${id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Sei sicuro di voler cestinare il prodotto?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+     
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="rimuoviCarrello(event, '${id}', '${price}')" >Conferma</button>
+      </div>
+    </div>
+  </div>
+</div>
+    </li>
+    
+`;
   const totale = document.querySelector(".totalePrezzo");
   /* console.log(totale.innerHTML); */
   totale.innerHTML = (Number(totale.innerHTML) + Number(price)).toFixed(2);
@@ -137,5 +154,34 @@ window.onload = () => {
                   <button type="button" class="btn btn-primary w-100 mt-4" onclick="home()">Conferma</button>
                   <button type="button" class="btn btn-danger w-100 mt-4" onclick="logout()">Esci</button>
                 </form>;`;
+  }
+};
+
+/*  Logica scroll e freccia */
+
+const scroll = () => {
+  let scrollY = window.scrollY;
+  console.log(scrollY);
+  const nav = document.querySelector(".navbar");
+  const nava = document.querySelector(".freccia");
+  if (scrollY > 50) {
+    nav.classList.add("nav");
+
+    nava.classList.remove("arrow-none");
+    nava.classList.add("arrow");
+  } else {
+    nav.classList.remove("nav");
+    nava.classList.remove("arrow");
+    nava.classList.add("arrow-none");
+  }
+};
+
+/*  Logica Carrello pieno/vuoto */
+const pagamento = () => {
+  const totale = document.querySelector(".totalePrezzo");
+  if (totale.innerHTML === "0") {
+    alert("Non hai articoli nel carrello!");
+  } else {
+    window.location.href = "index1.html";
   }
 };

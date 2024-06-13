@@ -41,7 +41,7 @@ const createNew = async () => {
     body: JSON.stringify(product),
   });
   if (res.ok) {
-    alert("Product created");
+    alert("Prodotto creato con successo!");
   }
 };
 
@@ -63,7 +63,7 @@ const editProduct = async () => {
     body: JSON.stringify(product),
   });
   if (res.ok) {
-    alert("Product created");
+    alert("Prodotto creato con successo!");
   }
 };
 
@@ -77,6 +77,7 @@ const deleteProduct = async () => {
   });
   if (res.ok) {
     alert("Product deleted");
+    window.location.href = "http://127.0.0.1:5500/";
   }
 };
 

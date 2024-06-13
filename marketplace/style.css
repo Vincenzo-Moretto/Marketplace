@@ -1,4 +1,4 @@
-body {
+/* body {
   padding-top: 5rem;
 }
 .starter-template {
@@ -20,9 +20,7 @@ body {
   user-select: none;
 }
 
-.modal-backdrop {
-  z-index: 0;
-}
+
 
 .bi-shop-window {
   font-size: 30px;
@@ -32,4 +30,151 @@ body {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
   }
+} */
+/* styles.css */
+
+/* styles.css */
+
+/* Navbar */
+.modal-backdrop {
+  z-index: 0;
+}
+.navbar {
+  background-color: #343a40; /* Colore di sfondo */
+  padding-top: 0.5rem; /* Padding sopra */
+  padding-bottom: 0.5rem; /* Padding sotto */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+.nav {
+  top: 10px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem; /* Dimensione del logo */
+  margin-right: 1rem; /* Margine a destra */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.1rem; /* Dimensione dei link */
+  margin-right: 0.5rem; /* Margine a destra */
+  color: #fff; /* Colore del testo */
+  transition: color 0.3s ease; /* Transizione colore */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffc107; /* Colore del testo al passaggio del mouse */
+}
+
+/* Main Content Area */
+.starter-template {
+  padding: 4rem 1.5rem; /* Padding più ampio */
+  text-align: center; /* Allineamento al centro */
+  background-color: #f8f9fa; /* Colore di sfondo */
+  border-radius: 10px; /* Bordi arrotondati */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombra */
+}
+
+.starter-template h1 {
+  font-size: 3rem; /* Dimensione del titolo principale */
+  margin-bottom: 2rem; /* Margine inferiore */
+}
+
+.starter-template p {
+  font-size: 1.2rem; /* Dimensione del testo */
+  line-height: 1.6; /* Altezza della linea */
+  color: #6c757d; /* Colore del testo grigio scuro */
+}
+
+.starter-template .btn-primary {
+  font-size: 1.2rem; /* Dimensione del pulsante */
+  padding: 0.75rem 2rem; /* Padding pulsante */
+  background-color: #007bff; /* Colore di sfondo del pulsante */
+  border-color: #007bff; /* Colore del bordo */
+}
+
+.starter-template .btn-primary:hover {
+  background-color: #0056b3; /* Colore di sfondo al passaggio del mouse */
+  border-color: #0056b3; /* Colore del bordo al passaggio del mouse */
+}
+
+/* Cards dei Prodotti */
+.card {
+  border: none; /* Rimuovi il bordo */
+  border-radius: 10px; /* Bordi arrotondati */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Effetto di sollevamento al passaggio del mouse */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Ombra più intensa al passaggio del mouse */
+}
+
+.card-img-top {
+  border-top-left-radius: 10px; /* Bordi arrotondati in alto a sinistra */
+  border-top-right-radius: 10px; /* Bordi arrotondati in alto a destra */
+  object-fit: cover; /* Assicura che l'immagine si adatti alla card */
+  height: 200px; /* Altezza immagine */
+}
+/* Cards dei Prodotti */
+.card {
+  border: none; /* Rimuovi il bordo */
+  border-radius: 10px; /* Bordi arrotondati */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Ombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transizioni */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Effetto di sollevamento al passaggio del mouse */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Ombra più intensa al passaggio del mouse */
+}
+
+.card-img-top {
+  border-top-left-radius: 10px; /* Bordi arrotondati in alto a sinistra */
+  border-top-right-radius: 10px; /* Bordi arrotondati in alto a destra */
+  object-fit: cover; /* Assicura che l'immagine si adatti alla card */
+  height: 200px; /* Altezza immagine */
+}
+/* Footer */
+footer {
+  background-color: #343a40; /* Colore di sfondo */
+  padding: 3rem 0; /* Padding sopra e sotto */
+  color: #fff; /* Colore del testo */
+}
+
+footer a {
+  color: #fff; /* Colore dei link */
+  text-decoration: none; /* Rimuovi sottolineato */
+  transition: color 0.3s ease; /* Transizione colore */
+}
+
+footer a:hover {
+  color: #ffc107; /* Colore del testo al passaggio del mouse */
+}
+
+.Loghi svg {
+  width: 30px; /* Dimensione delle icone */
+  height: 30px; /* Altezza delle icone */
+  fill: currentColor; /* Colora l'icona con il colore corrente */
+  transition: transform 0.3s ease; /* Transizione */
+}
+
+.Loghi svg:hover {
+  transform: scale(1.2); /* Ingrandisci icona al passaggio del mouse */
+}
+
+.arrow {
+  position: absolute;
+  bottom: 60px;
+  right: 50px;
+  position: fixed;
+  color: black;
+}
+
+.arrow:hover {
+  transform: scale(1.2);
+}
+
+.arrow-none {
+  display: none;
 }
