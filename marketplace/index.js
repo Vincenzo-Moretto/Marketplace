@@ -14,7 +14,9 @@ const getProdotti = async () => {
   if (cerca !== "") {
     row.innerHTML = "";
     products
-      .filter((e) => e.name.toLowerCase() === cerca.toLowerCase())
+      .filter(
+        (e) => e.name.toLowerCase() === cerca.toLowerCase() || e.name.toLowerCase().startsWith(cerca.toLowerCase())
+      )
       .forEach((prod) => {
         row.innerHTML += `
     <div class='col col-3 col-lg-3 col-md-4 col-sm-6 col-sm-12 mb-4'>  
