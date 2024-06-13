@@ -178,3 +178,36 @@ footer a:hover {
 .arrow-none {
   display: none;
 }
+
+/* Modalità Scura */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.navbar.dark-mode {
+  background-color: #1f1f1f;
+}
+
+.navbar-nav .nav-link.dark-mode {
+  color: #e0e0e0;
+}
+
+.starter-template.dark-mode {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+.card.dark-mode {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+footer.dark-mode {
+  background-color: #1f1f1f;
+  color: #e0e0e0;
+}
+
+footer a.dark-mode {
+  color: #e0e0e0;
+}

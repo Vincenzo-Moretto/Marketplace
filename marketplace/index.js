@@ -185,3 +185,25 @@ const pagamento = () => {
     window.location.href = "index1.html";
   }
 };
+
+/*  Logica DarkMode */
+
+const toggleDarkMode = () => {
+  document.body.classList.toggle("dark-mode");
+  document.querySelector(".navbar").classList.toggle("dark-mode");
+  document.querySelectorAll(".nav-link").forEach((link) => link.classList.toggle("dark-mode"));
+  document.querySelector(".starter-template").classList.toggle("dark-mode");
+  document.querySelectorAll(".card").forEach((card) => card.classList.toggle("dark-mode"));
+  document.querySelector("footer").classList.toggle("dark-mode");
+  document.querySelectorAll("footer a").forEach((link) => link.classList.toggle("dark-mode"));
+  const moon = document.querySelector("#dark-mode-toggle");
+  const body = document.querySelector("body");
+
+  if (body.classList.contains("dark-mode")) {
+    moon.innerHTML = `<i class="bi bi-brightness-high"></i>`;
+  } else {
+    moon.innerHTML = `<i class="bi bi-moon"></i>`;
+  }
+};
+
+document.getElementById("dark-mode-toggle").addEventListener("click", toggleDarkMode);
